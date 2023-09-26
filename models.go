@@ -6,13 +6,11 @@ import (
 	"github.com/bootdotdev/learn-cicd-starter/internal/database"
 )
 
-type User struct {
-	ID        string    `json:"id"`
+type User struct { ID        string    `json:"id"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	Name      string    `json:"name"`
-	ApiKey    string    `json:"api_key"`
-}
+	ApiKey    string    `json:"api_key"` }
 
 func databaseUserToUser(user database.User) User {
 	return User{
