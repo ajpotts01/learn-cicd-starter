@@ -36,8 +36,14 @@ jobs:
         with:
           go-version: "1.20"
 
+      - name: gosec setup
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Run tests
         run: go test ./... -cover
+
+      - name: Run security checks
+        run: gosec ./...
