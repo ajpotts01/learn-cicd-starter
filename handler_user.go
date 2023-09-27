@@ -51,7 +51,6 @@ func (cfg *apiConfig) handlerUsersCreate(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
-	log.Println("User created: Sending HTTP 201")
 	respondWithJSON(w, http.StatusCreated, databaseUserToUser(user))
 }
 
@@ -67,6 +66,5 @@ func generateRandomSHA256Hash() (string, error) {
 }
 
 func (cfg *apiConfig) handlerUsersGet(w http.ResponseWriter, r *http.Request, user database.User) {
-	log.Println("Status OK in handlerUsersGet")
-	respondWithJSON(w, http.StatusConflict, databaseUserToUser(user))
+	respondWithJSON(w, http.StatusOK, databaseUserToUser(user))
 }

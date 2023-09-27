@@ -220,10 +220,9 @@ func (c *Cors) Handler(next http.Handler) http.Handler {
 			if c.optionPassthrough {
 				next.ServeHTTP(w, r)
 			} else {
-				w.WriteHeader(http.StatusUnauthorized)
+				w.WriteHeader(http.StatusOK)
 			}
 		} else {
-			log.Println("Actual request")
 			c.logf("Handler: Actual request")
 			c.handleActualRequest(w, r)
 			next.ServeHTTP(w, r)
