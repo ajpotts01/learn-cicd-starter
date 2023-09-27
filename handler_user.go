@@ -51,6 +51,7 @@ func (cfg *apiConfig) handlerUsersCreate(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
+	log.Println("User created: Sending HTTP 201")
 	respondWithJSON(w, http.StatusCreated, databaseUserToUser(user))
 }
 
