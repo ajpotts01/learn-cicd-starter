@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 	"time"
 
@@ -16,6 +17,7 @@ func (cfg *apiConfig) handlerNotesGet(w http.ResponseWriter, r *http.Request, us
 		return
 	}
 
+	log.Println("In handlerNotesGet: Sending Status OK")
 	respondWithJSON(w, http.StatusOK, databasePostsToPosts(posts))
 }
 
