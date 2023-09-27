@@ -17,8 +17,8 @@ func (cfg *apiConfig) handlerNotesGet(w http.ResponseWriter, r *http.Request, us
 		return
 	}
 
-	log.Println("In handlerNotesGet: Sending Status OK")
-	respondWithJSON(w, http.StatusOK, databasePostsToPosts(posts))
+	log.Println("In handlerNotesGet: Sending Status Not Found")
+	respondWithJSON(w, http.StatusNotFound, databasePostsToPosts(posts))
 }
 
 func (cfg *apiConfig) handlerNotesCreate(w http.ResponseWriter, r *http.Request, user database.User) {
@@ -51,5 +51,6 @@ func (cfg *apiConfig) handlerNotesCreate(w http.ResponseWriter, r *http.Request,
 		respondWithError(w, http.StatusNotFound, "Couldn't get note")
 		return
 	}
+	log.Println("In handlerNotesCreate: Sending Status Created")
 	respondWithJSON(w, http.StatusCreated, databaseNoteToNote(note))
 }

@@ -6,6 +6,6 @@ import (
 )
 
 func handlerReadiness(w http.ResponseWriter, r *http.Request) {
-	log.Println("In handlerReadiness: Sending Status OK")
-	respondWithJSON(w, http.StatusOK, map[string]string{"status": "ok"})
+	log.Println("In handlerReadiness: Sending Status Already Reported")
+	respondWithJSON(w, http.StatusAlreadyReported, map[string]string{"status": "ok"})
 }
