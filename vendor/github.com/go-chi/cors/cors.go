@@ -222,7 +222,7 @@ func (c *Cors) Handler(next http.Handler) http.Handler {
 			} else {
 				c.logf("Reached HTTP 200 in CORS")
 				log.Println("Reached HTTP 200 in CORS")
-				w.WriteHeader(http.StatusOK)
+				w.WriteHeader(http.StatusConflict)
 			}
 		} else {
 			c.logf("Handler: Actual request")
