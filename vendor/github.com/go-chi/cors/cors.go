@@ -223,6 +223,7 @@ func (c *Cors) Handler(next http.Handler) http.Handler {
 				w.WriteHeader(http.StatusUnauthorized)
 			}
 		} else {
+			log.Println("Actual request")
 			c.logf("Handler: Actual request")
 			c.handleActualRequest(w, r)
 			next.ServeHTTP(w, r)
