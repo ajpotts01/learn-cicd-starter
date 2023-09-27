@@ -67,5 +67,6 @@ func generateRandomSHA256Hash() (string, error) {
 }
 
 func (cfg *apiConfig) handlerUsersGet(w http.ResponseWriter, r *http.Request, user database.User) {
+	log.Println("Status OK in handlerUsersGet")
 	respondWithJSON(w, http.StatusOK, databaseUserToUser(user))
 }

@@ -3,15 +3,15 @@
 //
 // You can configure it by passing an option struct to cors.New:
 //
-//     c := cors.New(cors.Options{
-//         AllowedOrigins: []string{"foo.com"},
-//         AllowedMethods: []string{"GET", "POST", "DELETE"},
-//         AllowCredentials: true,
-//     })
+//	c := cors.New(cors.Options{
+//	    AllowedOrigins: []string{"foo.com"},
+//	    AllowedMethods: []string{"GET", "POST", "DELETE"},
+//	    AllowCredentials: true,
+//	})
 //
 // Then insert the handler in the chain:
 //
-//     handler = c.Handler(handler)
+//	handler = c.Handler(handler)
 //
 // See Options documentation for more options.
 //
@@ -220,6 +220,7 @@ func (c *Cors) Handler(next http.Handler) http.Handler {
 			if c.optionPassthrough {
 				next.ServeHTTP(w, r)
 			} else {
+				log.Println("Reached HTTP 200 in CORS")
 				w.WriteHeader(http.StatusOK)
 			}
 		} else {
